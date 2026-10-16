@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Book Reader</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>📚 Smart Book Reader</h1>
+        <p>Your personal AI learning companion</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Upload a PDF book</h2>
+            <p>Upload a PDF to extract its text and prepare it for learning.</p>
+
+            <form id="uploadForm">
+                <input
+                    type="file"
+                    id="pdfFile"
+                    accept=".pdf,application/pdf"
+                    required
+                >
+                <button type="submit">Upload and Read</button>
+            </form>
+
+            <p id="status" role="status"></p>
+        </section>
+
+        <section class="card">
+            <h2>Your books</h2>
+            <button id="refreshBooks" type="button">Refresh books</button>
+            <ul id="bookList"></ul>
+        </section>
+
+        <section class="card">
+            <h2>Extracted text preview</h2>
+            <p id="bookInfo"></p>
+            <pre id="preview">Upload a PDF to see its extracted text here.</pre>
+        </section>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
