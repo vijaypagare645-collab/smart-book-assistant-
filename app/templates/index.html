@@ -1,49 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Book Reader</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/cssfile.css">
 </head>
 <body>
-    <header>
-        <h1>📚 Smart Book Reader</h1>
-        <p>Your personal AI learning companion</p>
-    </header>
-
-    <main>
-        <section class="card">
-            <h2>Upload a PDF book</h2>
-            <p>Upload a PDF to extract its text and prepare it for learning.</p>
-
-            <form id="uploadForm">
-                <input
-                    type="file"
-                    id="pdfFile"
-                    accept=".pdf,application/pdf"
-                    required
-                >
-                <button type="submit">Upload and Read</button>
-            </form>
-
-            <p id="status" role="status"></p>
-        </section>
-
-        <section class="card">
-            <h2>Your books</h2>
-            <button id="refreshBooks" type="button">Refresh books</button>
-            <ul id="bookList"></ul>
-        </section>
-
-        <section class="card">
-            <h2>Extracted text preview</h2>
-            <p id="bookInfo"></p>
-            <pre id="preview">Upload a PDF to see its extracted text here.</pre>
-        </section>
-    </main>
-
-    <script src="/static/script.js"></script>
+    <div id="header">
+        <div class = 'header' id="profilebg">
+            <div id="profile">
+                <div id="photo"><p>V</p></div>
+                <div id="name"><p>vijaypagare</p></div>
+            </div>
+        </div>
+        <div class = 'header' id="titelbg">
+            <div id="title">
+                <p>book tite</p>
+            </div>
+            <div  id="operations">
+                <div id="search">
+                    <button id = "searchb">🔍</button>
+                    <input id = "searcht" type="text" placeholder="Search here">
+                </div>
+                <div id="mode">
+                    <button id = 'mode1'>☀️</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sider">
+        <div class = 'sider' id="sider1">
+            <button class = 'sider1' id="addbook">add book</button>
+            <button class = 'sider1' id="yourbooks">your books</button>
+            <button class = 'sider1' id="removebook">remove book</button>
+            <button class = 'sider1' id="settings">settings</button>
+            <button class = 'sider1' id="sing">sing out</button>
+        </div>
+        <div class = 'seder' id="sider2"></div>
+    </div>
+    <div id="body">
+        main content                           
+    </div>
 </body>
 </html>
