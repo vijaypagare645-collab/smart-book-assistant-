@@ -16,7 +16,7 @@
         </div>
         <div class = 'header' id="titelbg">
             <div id="title">
-                <p>book tite</p>
+                <p>{{filename}}</p>
             </div>
             <div  id="operations">
                 <div id="search">
@@ -31,16 +31,54 @@
     </div>
     <div id="sider">
         <div class = 'sider' id="sider1">
-            <button class = 'sider1' id="addbook">add book</button>
-            <button class = 'sider1' id="yourbooks">your books</button>
+            <form class = 'sider1' action="/addbook" method="post">
+                <button class = 'sider1' id = 'addbook'>add book</button>
+            </form>
+            {%if addbook%}
+                <div id="card1">
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        <input id="book_file" name="myfile" type="file" accept="application/pdf,.pdf" required>
+                        <button id = 'book_button' type="submit">Upload</button>
+                    </form>
+                </div>
+            {%endif%}
+
+            <form class = 'sider1' action="/yourbooks" method="post">
+                <button class = 'sider1' id="yourbooks">your books</button>
+            </form>
+            {%if yourbooks%}
+                <div id="card2">
+                    {%for book in folder%}
+                        <form action="/content" method="post">
+                            <button class = 'books' type="submit" name = 'book' value = "{{book}}">{{book}}</button>
+                        </form> 
+                    {%endfor%}
+                </div>
+            {%endif%}
+
             <button class = 'sider1' id="removebook">remove book</button>
             <button class = 'sider1' id="settings">settings</button>
             <button class = 'sider1' id="sing">sing out</button>
         </div>
         <div class = 'seder' id="sider2"></div>
     </div>
+    
     <div id="body">
-        main content                           
+        {% if error %}
+            <h2 class="error">{{ error }}</h2>
+        {% endif %}
+
+        {% if filename %}
+            {% for page in pages %}
+                <div class="pages">
+                    <h4>Page {{ loop.index }}</h4>
+                    <p>{{ page }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Select a book from "Your Books" or upload a PDF.</p>
+        {% endif %}
     </div>
+
 </body>
 </html>
